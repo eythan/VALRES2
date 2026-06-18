@@ -4,6 +4,7 @@ function creerSession($pdo, $sessionId, $idUtilisateur)
     $stmt = $pdo->prepare("
         INSERT INTO sessions_actives (session_id, id_utilisateur)
         VALUES (?, ?)
+        ON DUPLICATE KEY UPDATE id_utilisateur = VALUES(id_utilisateur)
     ");
     $stmt->execute([$sessionId, $idUtilisateur]);
 }
