@@ -1,4 +1,4 @@
-    <?php
+<?php
 function creerSession($pdo, $sessionId, $idUtilisateur)
 {
     $stmt = $pdo->prepare("
