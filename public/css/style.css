@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #0b1220;
+    color: #cbd5e1;
+}
+
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    margin-bottom: 24px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.error {
+    color: #e53935;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 0.95rem;
+}
+
+.data-table th,
+.data-table td {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 12px;
+    text-align: center;
+}
+
+.data-table th {
+    background: #3b54f5;
+    color: white;
+}
+
+.data-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-container input {
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #e6eef8;
+    transition: all 0.3s ease;
+}
+
+.form-container input:focus {
+    border-color: #3b54f5;
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.form-container select {
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #e6eef8;
+    font-size: 1rem;
+    appearance: none;
+    background-size: 10px 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.form-container select:focus {
+    border-color: #3b54f5;
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.form-container select option {
+    background: #0b1220;
+}
+
+.form-btn-submit {
+    margin-top: 15px;
+    cursor: pointer;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(180deg, #3b54f5, #3b6cf5);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .12s;
+}
+
+.form-btn-submit:hover {
+    opacity: 0.9; 
+    box-shadow: 0 4px 8px rgba(59, 108, 245, 0.3);
+}
+
+.form-btn-submit:active {
+    opacity: 0.8;
+    box-shadow: 0 1px 3px rgba(59, 108, 245, 0.4); 
+}
+
+.data-table td a {
+    display: inline-block;
+    padding: 6px 10px;
+    margin: 2px 4px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.data-table td a[href*="action=edit"] {
+    background-color: #3b54f5;
+    color: white;
+    border: 1px solid #3b54f5;
+}
+
+.data-table td a[href*="action=edit"]:hover {
+    background-color: #2e43c5;
+    color: white;
+}
+
+.data-table td a[href*="action=delete"] {
+    background-color: #dc3545;
+    color: white;
+    border: 1px solid #dc3545;
+}
+
+.data-table td a[href*="action=delete"]:hover {
+    background-color: #c82333;
+    color: white;
+}

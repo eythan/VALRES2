@@ -1,0 +1,29 @@
+variables:
+  DEPLOY_USER: "root"
+  DEPLOY_HOST: "172.16.108.6"
+  DOCROOT: "/var/www/html/M2_Valres"
+  WEB_USER: "www-data"
+  WEB_GROUP: "www-data"
+
+stages:
+  - deploy
+
+deploy_to_lamp_server:
+  stage: deploy
+  tags:
+    - deploy-test
+  only:
+    - master
+
+  script:
+    - echo "Déploiement des fichiers sur $DEPLOY_USER@$DEPLOY_HOST dans $DOCROOT"
+
+    # Envoi des fichiers du projet (on exclut la CI et l'historique Git pour faire propre)
+    - rsync -avz --mkpath -e "ssh -o StrictHostKeyChecking=no" --exclude ".gitlab-ci.yml" --exclude ".git/" ./ "$DEPLOY_USER@$DEPLOY_HOST:$DOCROOT/"
+
+    # Ajustement des permissions pour Apache
+    - ssh -o StrictHostKeyChecking=no "$DEPLOY_USER@$DEPLOY_HOST" "chown -R $WEB_USER:$WEB_GROUP $DOCROOT"
+
+  environment:
+    name: production
+    url: "http://$DEPLOY_HOST"
